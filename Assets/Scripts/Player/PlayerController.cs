@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
@@ -12,11 +14,22 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rb;
     private Animator _animator;
     private Collider2D _collider;
+    private event UnityAction<int> _onCoinChange;
 
     private float _inputX;
     private int _groundLayer;
     private int _ladderMask;
     private float _startGravityScale;
+    private int _countCoin;
+
+    public int CountCoin => _countCoin;
+
+    public event UnityAction<int> OnCoinChange
+    {
+        add { _onCoinChange += value; }
+        remove { _onCoinChange -= value; }
+    }
+ 
 
 
     private void Awake()
@@ -90,9 +103,13 @@ public class PlayerController : MonoBehaviour
         return colliders.Length > 0;
     }
 
-    private void OnDrawGizmos()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(new Vector3(transform.position.x, transform.position.y - transform.localScale.y / 2, 0), 0.2f);
+        if (collision.gameObject.tag == "Coin")
+        {
+            _countCoin++;
+            _onCoinChange.Invoke(_countCoin);
+            Destroy(collision.gameObject);
+        }
     }
 }
