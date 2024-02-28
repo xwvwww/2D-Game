@@ -133,7 +133,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4305427258107631974, guid: df0719bc2f2e1564fad8c049e066f141, type: 3}
       propertyPath: m_Name
-      value: Coin (2)
+      value: Coin 2
       objectReference: {fileID: 0}
     - target: {fileID: 4305427258107631976, guid: df0719bc2f2e1564fad8c049e066f141, type: 3}
       propertyPath: m_RootOrder
@@ -3057,7 +3057,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4305427258107631974, guid: df0719bc2f2e1564fad8c049e066f141, type: 3}
       propertyPath: m_Name
-      value: Coin (3)
+      value: Coin 3
       objectReference: {fileID: 0}
     - target: {fileID: 4305427258107631976, guid: df0719bc2f2e1564fad8c049e066f141, type: 3}
       propertyPath: m_RootOrder
@@ -3407,7 +3407,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4305427258107631974, guid: df0719bc2f2e1564fad8c049e066f141, type: 3}
       propertyPath: m_Name
-      value: Coin (1)
+      value: Coin 1
       objectReference: {fileID: 0}
     - target: {fileID: 4305427258107631976, guid: df0719bc2f2e1564fad8c049e066f141, type: 3}
       propertyPath: m_RootOrder
