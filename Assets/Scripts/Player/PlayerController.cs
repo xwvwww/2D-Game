@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && CheckGround(new Vector2(transform.position.x, transform.position.y - 0.5f), 0.2f))
+        if (Input.GetKeyDown(KeyCode.Space) && CheckGround(new Vector2(transform.position.x, transform.position.y - 0.5f), 0.2f, _groundLayer))
         {
             _rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
         }
