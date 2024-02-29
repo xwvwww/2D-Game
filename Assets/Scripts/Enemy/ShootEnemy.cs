@@ -30,8 +30,9 @@ public class ShootEnemy : Enemy
         {
             if (Time.time - _shootTime < _shootDelay)
             {
-                _shootTime = Time.time;
+                return;
             }
+            _shootTime = Time.time;
             Instantiate(_bullet, _shootPoint.position, Quaternion.identity);
         }
     }

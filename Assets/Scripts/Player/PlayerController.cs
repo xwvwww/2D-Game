@@ -119,7 +119,7 @@ public class PlayerController : MonoBehaviour
 
             if (hp != null)
             {
-                _rb.AddForce(new Vector2(1, 1) * 50f, ForceMode2D.Impulse);
+                _rb.AddForce(new Vector2(1, 1) * 2f, ForceMode2D.Impulse);
                 hp.Damage(10);
             }
         }
