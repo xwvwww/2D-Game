@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     private int _ladderMask;
     private float _startGravityScale;
     private int _countCoin;
+    private bool _hit;
 
     public int CountCoin => _countCoin;
 
@@ -110,6 +111,17 @@ public class PlayerController : MonoBehaviour
             _countCoin++;
             _onCoinChange.Invoke(_countCoin);
             Destroy(collision.gameObject);
+        }
+
+        if (collision.gameObject.tag == "Spike")
+        {
+            Health hp = GetComponent<Health>();
+
+            if (hp != null)
+            {
+                _rb.AddForce(new Vector2(1, 1) * 50f, ForceMode2D.Impulse);
+                hp.Damage(10);
+            }
         }
     }
 }

@@ -19,6 +19,11 @@ public class Health : MonoBehaviour
         remove { _onChangeHealth -= value; }
     }
 
+    private void Start()
+    {
+        _currentHealth = _health;
+    }
+
     public void Damage(int dmg)
     {
         _currentHealth -= dmg;

@@ -34,4 +34,10 @@ public class HUD : MonoBehaviour
     {
         _slider.value = hp;
     }
+
+    private void OnDisable()
+    {
+        _playerController.OnCoinChange -= ChangeCoinText;
+        _health.OnHealthChange -= ChangeHealthSlider;
+    }
 }
