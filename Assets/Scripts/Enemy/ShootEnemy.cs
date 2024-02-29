@@ -33,7 +33,7 @@ public class ShootEnemy : Enemy
                 return;
             }
             _shootTime = Time.time;
-            Instantiate(_bullet, _shootPoint.position, Quaternion.identity);
+            Instantiate(_bullet, _shootPoint.position, transform.localRotation);
         }
     }
 }

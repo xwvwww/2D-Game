@@ -14,6 +14,11 @@ public class Bullet : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
     }
 
+    private void Start()
+    {
+        StartCoroutine(DestroyDelay());
+    }
+
     private void Update()
     {
         _rb.velocity = transform.right * -_speed;
@@ -27,7 +32,16 @@ public class Bullet : MonoBehaviour
             if (h != null)
             {
                 h.Damage(25);
+                Destroy(gameObject);
             }
         }
+
+        Destroy(gameObject);
+    }
+
+    private IEnumerator DestroyDelay()
+    {
+        yield return new WaitForSeconds(8f);
+        Destroy(gameObject);
     }
 }

@@ -3280,7 +3280,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4305427258107631976, guid: df0719bc2f2e1564fad8c049e066f141, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.73
+      value: 2.45
       objectReference: {fileID: 0}
     - target: {fileID: 4305427258107631976, guid: df0719bc2f2e1564fad8c049e066f141, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3725,7 +3725,7 @@ MonoBehaviour:
   _damage: 20
   _bullet: {fileID: 5514362998663376491, guid: f191f65755d07494d8be3e91037899ed, type: 3}
   _shootPoint: {fileID: 2138232172}
-  _shootDelay: 0.5
+  _shootDelay: 1
 --- !u!1001 &586575226
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5660,11 +5660,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4305427258107631976, guid: df0719bc2f2e1564fad8c049e066f141, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.49
+      value: -4.57
       objectReference: {fileID: 0}
     - target: {fileID: 4305427258107631976, guid: df0719bc2f2e1564fad8c049e066f141, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.35
+      value: -2.5
       objectReference: {fileID: 0}
     - target: {fileID: 4305427258107631976, guid: df0719bc2f2e1564fad8c049e066f141, type: 3}
       propertyPath: m_LocalPosition.z
