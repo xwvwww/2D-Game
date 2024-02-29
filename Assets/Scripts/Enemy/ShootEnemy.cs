@@ -8,13 +8,13 @@ public class ShootEnemy : Enemy
     [SerializeField] private Transform _shootPoint;
     [SerializeField] private float _shootDelay;
 
-    private Collider2D _trigger;
+    private Trigger _trigger;
     private float _shootTime;
     private int _playerLayer;
 
     private void Awake()
     {
-        _trigger = GetComponentInChildren<Collider2D>();
+        _trigger = GetComponentInChildren<Trigger>();
         
     }
 
@@ -26,8 +26,12 @@ public class ShootEnemy : Enemy
 
     private void Update()
     {
-        if (_trigger.IsTouchingLayers(_playerLayer))
+        if (_trigger.IsTarget)
         {
+            if (Time.time - _shootTime < _shootDelay)
+            {
+                _shootTime = Time.time;
+            }
             Instantiate(_bullet, _shootPoint.position, Quaternion.identity);
         }
     }
