@@ -9,13 +9,15 @@ public class ShootEnemy : Enemy
     [SerializeField] private float _shootDelay;
 
     private Trigger _trigger;
+    private Animator _animator;
     private float _shootTime;
     private int _playerLayer;
 
     private void Awake()
     {
         _trigger = GetComponentInChildren<Trigger>();
-        
+        _animator = GetComponent<Animator>();
+
     }
 
     protected override void Start()
@@ -33,7 +35,12 @@ public class ShootEnemy : Enemy
                 return;
             }
             _shootTime = Time.time;
-            Instantiate(_bullet, _shootPoint.position, transform.localRotation);
+            _animator.SetTrigger("Shoot");
         }
+    }
+
+    public void Shoot()
+    {
+        Instantiate(_bullet, _shootPoint.position, transform.localRotation);
     }
 }

@@ -3607,6 +3607,7 @@ GameObject:
   - component: {fileID: 571419116}
   - component: {fileID: 571419115}
   - component: {fileID: 571419118}
+  - component: {fileID: 571419119}
   m_Layer: 0
   m_Name: ShootEnemy
   m_TagString: Untagged
@@ -3726,6 +3727,26 @@ MonoBehaviour:
   _bullet: {fileID: 5514362998663376491, guid: f191f65755d07494d8be3e91037899ed, type: 3}
   _shootPoint: {fileID: 2138232172}
   _shootDelay: 1
+--- !u!95 &571419119
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 571419114}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fc1a38e7c445add4c9ed4d29d9a0de41, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &586575226
 PrefabInstance:
   m_ObjectHideFlags: 0
