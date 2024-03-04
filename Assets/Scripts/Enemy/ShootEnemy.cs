@@ -36,7 +36,10 @@ public class ShootEnemy : Enemy
             }
             _shootTime = Time.time;
             _animator.SetTrigger("Shoot");
+            Shoot();
         }
+
+        
     }
 
     public void Shoot()
