@@ -452,7 +452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 4
-  _jumpForce: 10
+  _jumpForce: 12
   _climbingSpeed: 4
 --- !u!50 &268212999
 Rigidbody2D:
