@@ -10,6 +10,7 @@ public class Health : MonoBehaviour
 
     private int _currentHealth;
     private event UnityAction<int> _onChangeHealth;
+    private event UnityAction _onDeath;
 
     public int HP => _health;
 
@@ -17,6 +18,12 @@ public class Health : MonoBehaviour
     {
         add { _onChangeHealth += value; }
         remove { _onChangeHealth -= value; }
+    }
+
+    public event UnityAction OnDeath
+    {
+        add { _onDeath += value; }
+        remove { _onDeath -= value; }
     }
 
     private void Start()
@@ -31,6 +38,7 @@ public class Health : MonoBehaviour
 
         if (_currentHealth <= 0)
         {
+            _onDeath?.Invoke();
             Destroy(gameObject);
         }
     }

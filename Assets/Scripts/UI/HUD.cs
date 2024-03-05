@@ -10,14 +10,17 @@ public class HUD : MonoBehaviour
     [SerializeField] private PlayerController _playerController;
     [SerializeField] private Slider _slider;
     [SerializeField] private Health _health;
+    [SerializeField] private GameObject _gameOverPanel;
 
     void Start()
     {
         _slider.minValue = 0;
         _slider.maxValue = _health.HP;
         _slider.value = _slider.maxValue;
+
         _playerController.OnCoinChange += ChangeCoinText;
         _health.OnHealthChange += ChangeHealthSlider;
+        _health.OnDeath += ActiveGameOverPanel;
     }
 
     void Update()
@@ -35,9 +38,18 @@ public class HUD : MonoBehaviour
         _slider.value = hp;
     }
 
+    private void ActiveGameOverPanel()
+    {
+        if (_gameOverPanel == null)
+            return;
+
+        _gameOverPanel.SetActive(true);
+    }
+
     private void OnDisable()
     {
         _playerController.OnCoinChange -= ChangeCoinText;
         _health.OnHealthChange -= ChangeHealthSlider;
+        _health.OnDeath -= ActiveGameOverPanel;
     }
 }
