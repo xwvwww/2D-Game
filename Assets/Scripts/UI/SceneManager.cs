@@ -9,4 +9,9 @@ public class SceneManager : MonoBehaviour
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(index);
     }
+
+    public void Exit()
+    {
+        Application.Quit();
+    }
 }

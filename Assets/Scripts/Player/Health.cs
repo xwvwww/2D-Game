@@ -42,4 +42,14 @@ public class Health : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void AddHealth(int dmg)
+    {
+        _currentHealth += dmg;
+
+        if (_currentHealth >= _health)
+            _currentHealth = _health;
+
+        _onChangeHealth?.Invoke(_currentHealth);
+    }
 }

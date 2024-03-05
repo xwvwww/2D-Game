@@ -7,10 +7,21 @@ using UnityEngine.UI;
 public class HUD : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _coinText;
+    [SerializeField] private TextMeshProUGUI _coinTextGameOver;
     [SerializeField] private PlayerController _playerController;
     [SerializeField] private Slider _slider;
     [SerializeField] private Health _health;
     [SerializeField] private GameObject _gameOverPanel;
+
+    private GameObject _coinBar;
+    private GameObject _healthBar;
+
+
+    private void Awake()
+    {
+        _coinBar = transform.Find("Coin Bar").gameObject;
+        _healthBar = transform.Find("Health Bar").gameObject;
+    }
 
     void Start()
     {
@@ -44,6 +55,10 @@ public class HUD : MonoBehaviour
             return;
 
         _gameOverPanel.SetActive(true);
+        
+        _coinBar.SetActive(false);
+        _healthBar.SetActive(false);
+        _coinTextGameOver.text = _coinText.text;
     }
 
     private void OnDisable()
