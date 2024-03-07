@@ -28,7 +28,6 @@ public class PatrolEnemy : Enemy
     {
 
         Move();
-        Attack();
     }
 
     private void Move()
@@ -36,6 +35,7 @@ public class PatrolEnemy : Enemy
         if (!_isRight && _canMove)
         {
             _animator.SetTrigger("IsWalking");
+            transform.localScale = new Vector3(-1, 1, 1);
             transform.position = Vector3.MoveTowards(transform.position,
                                                      _rightPoint.position,
                                                      _speed * Time.deltaTime);
@@ -52,6 +52,7 @@ public class PatrolEnemy : Enemy
         else if (_canMove && _isRight)
         {
             _animator.SetTrigger("IsWalking");
+            transform.localScale = new Vector3(1, 1, 1);
             transform.position = Vector3.MoveTowards(transform.position,
                                                      _leftPoint.position,
                                                      _speed * Time.deltaTime);
