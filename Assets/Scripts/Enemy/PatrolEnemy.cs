@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PatrolEnemy : Enemy
@@ -26,7 +25,6 @@ public class PatrolEnemy : Enemy
 
     private void Update()
     {
-
         Move();
     }
 
@@ -34,7 +32,7 @@ public class PatrolEnemy : Enemy
     {
         if (!_isRight && _canMove)
         {
-            _animator.SetTrigger("IsWalking");
+            _animator.SetBool("IsWalking", true);
             transform.localScale = new Vector3(-1, 1, 1);
             transform.position = Vector3.MoveTowards(transform.position,
                                                      _rightPoint.position,
@@ -45,13 +43,11 @@ public class PatrolEnemy : Enemy
             {
                 StartCoroutine(DelayMove());
                 _isRight = true;
-
-
             }
         }
         else if (_canMove && _isRight)
         {
-            _animator.SetTrigger("IsWalking");
+            _animator.SetBool("IsWalking", true);
             transform.localScale = new Vector3(1, 1, 1);
             transform.position = Vector3.MoveTowards(transform.position,
                                                      _leftPoint.position,
@@ -61,7 +57,6 @@ public class PatrolEnemy : Enemy
             {
                 StartCoroutine(DelayMove());
                 _isRight = false;
-                _animator.SetTrigger("IsWalking");
             }
         }
     }
@@ -69,9 +64,7 @@ public class PatrolEnemy : Enemy
 
     private void Attack()
     {
-        _animator.SetTrigger("IsAttack");
         Collider2D[] colliders = Physics2D.OverlapCircleAll(_attackPoint.position, 0.3f, 1);
-
 
         foreach (Collider2D collider in colliders)
         {
@@ -85,6 +78,7 @@ public class PatrolEnemy : Enemy
     private IEnumerator DelayMove()
     {
         _canMove = false;
+        _animator.SetBool("IsWalking", false);
         yield return new WaitForSeconds(2f);
         _canMove = true;
     }
