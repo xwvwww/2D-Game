@@ -70,6 +70,7 @@ public class PatrolEnemy : Enemy
         {
             if (collider.tag == "Player")
             {
+                _animator.SetTrigger("IsAttack");
                 Destroy(collider.gameObject);
             }
         }
