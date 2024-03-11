@@ -64,14 +64,17 @@ public class PatrolEnemy : Enemy
 
     private void Attack()
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(_attackPoint.position, 0.3f, 1);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(_attackPoint.position, 0.3f);
 
         foreach (Collider2D collider in colliders)
         {
-            if (collider.tag == "Player")
+            if (collider.gameObject.tag == "Player")
             {
-                _animator.SetTrigger("IsAttack");
-                Destroy(collider.gameObject);
+                Health h = collider.gameObject.GetComponent<Health>();
+                if (h != null)
+                {
+                    h.Damage(25);
+                }
             }
         }
     }
@@ -82,5 +85,21 @@ public class PatrolEnemy : Enemy
         _animator.SetBool("IsWalking", false);
         yield return new WaitForSeconds(2f);
         _canMove = true;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            _animator.SetTrigger("IsAttack");
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            _animator.SetTrigger("IsAttack");
+        }
     }
 }
